@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140219215835) do
+ActiveRecord::Schema.define(version: 20140220171213) do
 
   create_table "cat_rental_requests", force: true do |t|
     t.integer  "cat_id",                         null: false
@@ -25,13 +25,17 @@ ActiveRecord::Schema.define(version: 20140219215835) do
   add_index "cat_rental_requests", ["cat_id"], name: "index_cat_rental_requests_on_cat_id"
 
   create_table "cats", force: true do |t|
-    t.integer  "age",        null: false
-    t.date     "birth_date", null: false
-    t.string   "color",      null: false
-    t.string   "name",       null: false
-    t.string   "sex",        null: false
+    t.integer  "age",                  null: false
+    t.date     "birth_date",           null: false
+    t.string   "color",                null: false
+    t.string   "name",                 null: false
+    t.string   "sex",                  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "profile_file_name"
+    t.string   "profile_content_type"
+    t.integer  "profile_file_size"
+    t.datetime "profile_updated_at"
   end
 
 end
