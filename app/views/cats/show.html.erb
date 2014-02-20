@@ -1,8 +1,23 @@
-<% @cat.attributes.each do |key, value| %>
-	<%= "#{key}: #{value}" %>
-	<br>
-<%end%>
-<br>
+<table>
+  <tr>
+    <td class="td-style">Name: </td>
+    <td class="td-style"><%= @cat.name %></td>
+  </tr>
+  <tr>
+    <td class="td-style">Age: </td>
+    <td class="td-style"><%= @cat.age %></td>
+  </tr>
+  <tr>
+    <td class="td-style">Color: </td>
+    <td class="td-style"><%= @cat.color %></td>
+  </tr>
+  <tr>
+    <td class="td-style">Birthday: </td>
+    <td class="td-style"><%= @cat.birth_date %></td>
+  </tr>
+</table>
+
+
 
 
 <% @cat.cat_rental_requests.each_with_index do |request, req_idx| %>
