@@ -1,0 +1,23 @@
+<% @cat.attributes.each do |key, value| %>
+	<%= "#{key}: #{value}" %>
+	<br>
+<%end%>
+<br>
+
+
+<% @cat.cat_rental_requests.each_with_index do |request, req_idx| %>
+	<%= "Request ##{req_idx + 1}" %>
+	<br>
+	<label>Start Date</label>
+	<%= request.start_date %>
+	<br>
+	<label>End Date</label>
+	<%= request.end_date %>
+	<br>
+	<br>
+	<% if request.pending? %>
+		<%= button_to "Approve rental", approve_cat_rental_request_url(request), :method => :patch %>
+		<%= button_to "Deny rental", deny_cat_rental_request_url(request), :method => :patch %>
+	<% end %>
+<% end %>
+
