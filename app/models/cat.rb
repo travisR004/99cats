@@ -14,7 +14,7 @@
 
 class Cat < ActiveRecord::Base
   COLORS = %w(Red Blue Brown Black Tri White Calico Gray)
-
+  has_attached_file :profile, :styles {:medium => "100x100>"}
   validates :age, presence: true, numericality: true
   validates :sex, inclusion: { in: %w(M F)}, presence: true
   validates :color, inclusion: {in: COLORS},
@@ -22,5 +22,6 @@ class Cat < ActiveRecord::Base
   validates :birth_date, :name, presence: true
 
   has_many :cat_rental_requests
+
 
 end
