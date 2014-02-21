@@ -40,13 +40,14 @@
   </style>
 </head>
 <body>
-	<% if flash[:error] %>
-		<% flash[:error].each do |error| %>
-			<ul style="color:red;"><%= error %></ul>
-		<% end %>
-	<% end %>
   <div id="outer-container">
     <div id="inner-container">
+			<%= render 'sessions/header' %>
+			<% if flash[:error] %>
+				<% flash[:error].each do |error| %>
+					<ul style="color:red;"><%= error %></ul>
+				<% end %>
+			<% end %>
       <%= yield %>
     </div>
   </div>

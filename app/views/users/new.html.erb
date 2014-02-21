@@ -1,0 +1,15 @@
+<h1>New Cat Renter!?</h1>
+<form action="<%= users_url %>" method="post">
+	<input
+	name="authenticity_token"
+	type="hidden"
+	value="<%= form_authenticity_token %>">
+	<label for="user_name">UserName</label>
+	<input name="user[username]" id="user_name" type"text">
+	<br>
+
+	<label for="password">Password</label>
+	<input name="user[password]" id="password" type="password">
+	<br>
+	<input type="submit" value="Sign Up!!!">
+</form>

@@ -13,6 +13,10 @@
 	<label>Sex</label>
 
 	<div>
+		<input
+		name="authenticity_token"
+		type="hidden"
+		value="<%= form_authenticity_token %>">
 		<%if @cat.sex == 'F'%>
 			<input name="cat[sex]" id="cat_sex_m" type="radio" value="M">
 			<label for="cat_sex_m">Male</label>
@@ -44,8 +48,6 @@
 	<label for="cat_birth_date">Birthday</label>
 	<input name="cat[birth_date]" id="cat_birth_date" type="date" 		value="<%=@cat.birth_date%>"></input>
 
-  <label for="cat_profile_pic">Picture</label>
-  <input type="file" accept="image/jpg.image/gif" id="cat_profile_pic"     name="cat[profile]" multipart='true'>
 
 	<input type="submit" value="Register Cat!">
 </form>

@@ -1,0 +1,7 @@
+<% if logged_in? %>
+	<%= "Book some cats, " + current_user.username + "!!!" %>
+	<%= button_to 'Dog person?', session_url,
+	method: "delete" %>
+<% else %>
+	<%= link_to "Login here!", new_session_url %>
+<% end %>

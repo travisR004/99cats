@@ -14,17 +14,20 @@
 #  profile_content_type :string(255)
 #  profile_file_size    :integer
 #  profile_updated_at   :datetime
+#  user_id              :integer
 #
 
 class Cat < ActiveRecord::Base
   COLORS = %w(Red Blue Brown Black Tri White Calico Gray)
-  has_attached_file :profile, :style  =>  {:medium => "300x300>"}
+  # has_attached_file :profile, :style  =>  {:medium => "300x300>"}
   validates :age, presence: true, numericality: true
   validates :sex, inclusion: { in: %w(M F)}, presence: true
   validates :color, inclusion: {in: COLORS},
     presence: true
-  validates_attachment_content_type :profile, :content_type => /\Aimage\/.*\Z/
-  validates :birth_date, :name, :profile, presence: true
+  # validates_attachment_content_type :profile, :content_type => /\Aimage\/.*\Z/
+  validates :birth_date, :name, presence: true
+
+  belongs_to :user
 
   has_many :cat_rental_requests
 
