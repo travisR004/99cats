@@ -1,4 +1,4 @@
-<form action="<%= @cat.persisted? ? cat_url(@cat) : cats_url %>" method="post">
+<form action="<%= @cat.persisted? ? cat_url(@cat) : cats_url %>" method="post" enctype="multipart/form-data">
 	<% if @cat.persisted? %>
 		<input type='hidden' name = "_method" value = "PATCH">
 	<% end %>
@@ -48,6 +48,22 @@
 	<label for="cat_birth_date">Birthday</label>
 	<input name="cat[birth_date]" id="cat_birth_date" type="date" 		value="<%=@cat.birth_date%>"></input>
 
+  <!-- <label for="profile_pic">Cat Pic!</label>
+  <input type='file' name="cat[profile]", id="profile_pic", multippart=true> -->
+
+<input id="cat_profile" name="cat[profile]" type="file">
 
 	<input type="submit" value="Register Cat!">
 </form>
+
+
+
+
+
+
+
+
+
+
+
+

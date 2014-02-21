@@ -2,16 +2,11 @@ module SessionsHelper
 
   def current_user
     return nil if session[:session_token].nil?
-    @current_user ||= User.find(Session.find_by(session_token: session[:session_token].session_token).user_id)
+    @current_user ||= User.find(Session.where(session_token: session[:session_token]).first.user_id)
   end
 
   def login!
-   if logged_in?
-    @sesh_toke = (session_token: session[:session_token].session_token)
-   else
-    @new_sesh = @user.reset_session_token!
-  end
-
+    session[:session_token] = @user.reset_session_token!
   end
 
   def login_user!
@@ -19,11 +14,11 @@ module SessionsHelper
   end
 
   def logged_in?
-    !!@current_user
+    !!current_user
   end
 
   def logout!
-    current_user.reset_session_token! if logged_in?
+    Session.find_by(session_token: session[:session_token]).destroy!
     session[:session_token] = nil
   end
 

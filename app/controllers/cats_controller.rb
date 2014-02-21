@@ -41,7 +41,7 @@ class CatsController < ApplicationController
   private
 
   def user_logged_in
-    redirect_to root_url unless logged_in?
+    redirect_to new_session_url unless logged_in?
   end
 
   def owns_cat
